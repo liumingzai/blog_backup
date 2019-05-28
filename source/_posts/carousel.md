@@ -49,7 +49,7 @@ tags: bootstrap
 ```
 
 ## Carsoul的基本参数概览
-![参数概览](../_images/carousel.png)
+![参数概览](/assets/img/carousel.png)
 
 ## Carsoul里面的常用属性说明
 + data-ride="carousel": k页面加载时加载轮播
