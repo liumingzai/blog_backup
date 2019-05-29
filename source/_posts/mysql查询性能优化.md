@@ -1,7 +1,10 @@
 ---
 title: mysql查询性能优化
 date: 2019-05-29 15:31:47
-tags: mysql db DB 数据库
+tags: 
+ - mysql
+ - db
+ - 数据库
 ---
 
 ### MySql优化-查询优化

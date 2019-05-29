@@ -1,7 +1,10 @@
 ---
 title: 轮播图
 date: 2019-05-28 10:34:59
-tags: bootstrap
+tags: 
+  - bootstrap
+  - carousel
+	- 前端 
 ---
 
 >不同的前端UI里都有应用轮播图，最常用的是bootstrap的carousel，轮播图的一些常用用法总结
