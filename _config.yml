@@ -75,7 +75,7 @@ pagination_dir: page
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: yilia
-exclude_generator
+exclude_generator:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -83,7 +83,6 @@ deploy:
   type: git
   repo: https://github.com/liumingzai/liumingzai.github.io.git
   branch: master
-
 
 jsonContent:
   meta: false
