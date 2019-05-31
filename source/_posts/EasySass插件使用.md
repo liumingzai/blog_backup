@@ -15,9 +15,6 @@ tags:
 <font size=2> 问题是由于对于写带有循环分支的scss想转css迁移到其他项目中应用,话不多说我们直奔主题
 
 
----
-
-
 在Vscode插件中搜索EeasySass插件进行安装，插件中有说明如何编译scss to css
 
 ![插件预览](/assets/img/easyscss.png)
