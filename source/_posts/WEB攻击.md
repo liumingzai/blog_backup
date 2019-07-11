@@ -26,6 +26,7 @@ tags:
 
 ## 跨站脚本攻击（XSS)
 > 跨站脚本攻击（Cross-Site Scriping）是指通过存在安全漏洞的web网站注册用户的浏览器内运行非法的html标签或者javascript脚本的一致攻击。动态生成的html存在安全漏洞隐患
+
 + 存储型XSS：存储型XSS，持久化，代码是存储在服务器中的，如在个人信息或发表文章等地方，插入代码，如果没有过滤或过滤不严，那么这些代码将储存到服务器中，用户访问该页面的时候触发代码执行。这种XSS比较危险，容易造成蠕虫，盗窃cookie
 + 反射型XSS：非持久化，需要欺骗用户自己去点击链接才能触发XSS代码（服务器中没有这样的页面和内容），一般容易出现在搜索页面。反射型XSS大多数是用来盗取用户的Cookie信息。
 + DOM型XSS：不经过后端，DOM-XSS漏洞是基于文档对象模型(Document Objeet Model,DOM)的一种漏洞，DOM-XSS是通过url传入参数去控制触发的，其实也属于反射型XSS。 DOM的详解：DOM文档对象模型
@@ -43,6 +44,7 @@ tags:
 
  ## OS注入攻击
  > OS命令注入攻击（OS Command Injection）是通过Web应用，执行非法的操作系统命令达到攻击目的，只要能调用shell的地方都存在攻击风险。通过管道符接收用户输入，并输出到指定文件
+ 
 ``` bash
 my $adr = $q->param('mailaddress');
 open(MAIL, "| /usr/sbin/sendmail $adr");
