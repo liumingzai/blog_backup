@@ -96,7 +96,7 @@ public class AesUtil {
 }
 ``` 
 运行结果如下图
-![参数概览](/assets/img/aesresult.png)
+![图片](/assets/img/result.png)
 
 
 ### 二、Postgresql加密解密
@@ -110,7 +110,7 @@ SELECT encode(encrypt('welcome to 明仔博客'::bytea,'0000000000888888','aes-e
 <font color=#eb7350 size=2>值得注意的是秘钥和加密模式要一致,也可以通过创建数据库函数来简化加密过程</font>
 
 运行结果如下图
-![参数概览](/assets/img/postgresql.png)
+![图片](/assets/img/postgresql.png)
 
 
 
