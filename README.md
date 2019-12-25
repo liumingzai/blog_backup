@@ -9,7 +9,7 @@
 
 #### 生成博客
 ``` bash
-  hexo generator
+  hexo generate
 ```
 
 #### 部署博客
