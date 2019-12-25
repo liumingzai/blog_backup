@@ -14,11 +14,10 @@ tags:
 + 安装
 + 实例
 + 使用
-+ 总结
 
 ### 一、安装
 
-[Mockjs官网](/http://mockjs.com/ "官网")
+[Mockjs官网]http://mockjs.com "官网"
 
 ``` bash
  npm i mockjs --save 
@@ -29,14 +28,14 @@ tags:
 
 ```
 
-### 一、实例
+### 二、实例
 
-[官网示例](/http://mockjs.com/examples.html/ "官网示例")
+[官网示例]http://mockjs.com/examples.html "官网示例"
 
 打开浏览器控制台console可以随按照示例联系
 
 
-### 一、使用
+### 三、使用
 
 项目中应用
 
@@ -78,9 +77,10 @@ import '@/mock/mock.js'
       }
     }
   }
-```s
+```
 
 封装接口配置
+
 ``` bash
 
 const MOCKURL = 'http://liumingzai.com.cn/';
@@ -117,5 +117,3 @@ export default URL;
 ![预览](/assets/img/mock.png)
 
 
-
-### 一、总结
