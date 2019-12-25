@@ -1,5 +1,5 @@
 ---
-title: '''Mockjs如何模拟数据接口'''
+title: Mockjs如何模拟数据接口
 date: 2019-12-25 13:59:04
 tags:
   - Mockjs
@@ -18,7 +18,7 @@ tags:
 
 ### 一、安装
 
-![官网](/http://mockjs.com/)
+[Mockjs官网](/http://mockjs.com/ "官网")
 
 ``` bash
  npm i mockjs --save 
@@ -31,7 +31,7 @@ tags:
 
 ### 一、实例
 
-![示例](/http://mockjs.com/examples.html/)
+[官网示例](/http://mockjs.com/examples.html/ "官网示例")
 
 打开浏览器控制台console可以随按照示例联系
 
