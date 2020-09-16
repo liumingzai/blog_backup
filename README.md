@@ -14,5 +14,10 @@
 
 #### 部署博客
 ``` bash
-  hexo server
+  hexo deploy
+```
+
+#### 本地博客
+``` bash
+  hexo server    // http://localhost:4000
 ```
