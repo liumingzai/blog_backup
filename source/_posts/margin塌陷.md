@@ -4,7 +4,7 @@ date: 2020-03-10 11:30:33
 tags:
   - 前端
   - css
-	- 布局
+  - 布局
 ---
 
 >这涉及到浏览器对BFC约束,下一篇博文介绍BFC.简单的介绍一下margin塌陷和margin合并问题产生的原因及如何解决
@@ -31,7 +31,6 @@ tags:
 	     height:50px;
          background-color:#00f;
          opacity:0.8;
-		 margin-top:150px;
      }
     </style>
 </head>
