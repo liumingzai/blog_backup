@@ -20,4 +20,4 @@
 #### 本地博客
 ``` bash
   hexo server    // http://localhost:4000
-```
+```binlingexia@163.com
