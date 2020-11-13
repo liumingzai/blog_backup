@@ -7,11 +7,11 @@ tags:
   - reduce
 ---
 
-> 接到一个面试题合并二维数组成一维有序数组。要求用reduce实现。我想foreach和for在此时被reduce的逼格虐倒。按照我的疑惑来了解一下reduce。
+> reduce在我们实际开发中的高逼格应用
 
-    reduce的语法按我的理解其实是一个callback回调包含四个参数，以及一个初始值initalValue
++ reduce的语法按我的理解其实是一个callback回调包含四个参数，以及一个初始值initalValue
 
-    四个参数分别是: previousValue、currentValue、index、array。我觉得需要强调的可能有第一个参数，表示上一次回调返回值或者initialValue。第三个参数index是从1开始的，如果要从0开始可以设置initalValue为0
++ 四个参数分别是: previousValue、currentValue、index、array。我觉得需要强调的可能有第一个参数，表示上一次回调返回值或者initialValue。第三个参数index是从1开始的，如果要从0开始可以设置initalValue为0
 
 #### 常用来回答一套传统的面试题，求数组元素的和（工作好几年的我第一个印象还是循环）那么高逼格的写法是如何的呢？
 
@@ -116,6 +116,59 @@ tags:
 
   运行结果：
  [ 1, 2, 3, 7, 5, 7 ]
+
+```
+
++ 第五道算法题：生成裴波那契数列
+
+``` bash
+
+  const fibonacci = (n) => {
+    return Array(n).fill(0).reduce((pre, cur,i)=> {
+      console.log(pre, cur, i)
+      return pre.concat(i>1 ? pre[i-1]+pre[i-2]: i) 
+    } ,[])
+      
+  } 
+  console.log(fibonacci(5))
+  
+  运行结果：
+  [] 0 0
+  [ 0 ] 0 1
+  [ 0, 1 ] 0 2
+  [ 0, 1, 1 ] 0 3
+  [ 0, 1, 1, 2 ] 0 4
+  [ 0, 1, 1, 2, 3 ]
+
+```
+
++ 第六道算法题：过滤对象key属性
+
+``` bash
+  const pick = (obj, arr)=>
+    arr.reduce((pre, cur)=> {
+      // if(cur in obj) {
+      if(Object.keys(obj).includes(cur)){
+        pre[cur] = obj[cur]
+        return pre;
+      }
+    }, {})
+
+  console.dir(pick({id: 12, name: '张三' , age:24}, ['id', 'name']));
+
+  运行结果：
+  { id: 12, name: '张三' }
+
+```
+
+
++ 第七道算法题：分组聚合
+
+``` bash
+
+
+  运行结果：
+  
 
 ```
 
