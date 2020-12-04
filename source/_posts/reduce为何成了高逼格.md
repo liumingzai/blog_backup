@@ -166,9 +166,34 @@ tags:
 
 ``` bash
 
+  //闭包存储的变量func
+  const groupBy = (arr, func) => 
+    arr.map(typeof func === 'funciton' ? func: val=>val[func])
+    .reduce((pre, cur, i)=>{
+      pre[cur] = (pre[cur] || []).concat(arr[i]);
+      return pre;
+    },{});
+    
+  console.log(groupBy(['one','two','three'], 'length'))
+   // console.log(groupBy([6.1,6.2,6.3], Math.floor));  很奇怪，单独的执行[6.1,6.2,6.3].map(Math.floor) 是ok的 [6.1,6.2,6.3].map(func)就返回undefined
+
 
   运行结果：
+  { '3': [ 'one', 'two' ], '5': [ 'three' ] }
   
+  const groupBy = 
+    (arr) => arr
+      .map(Math.floor)
+      .reduce((pre, cur, i)=>{
+        pre[cur] = (pre[cur] || []).concat(arr[i]);
+        return pre;
+    },{});
+    
+  console.log(groupBy([6.1, 6.2, 4.3]));  
+
+  运行结果：
+  { '4': [ 4.3 ], '6': [ 6.1, 6.2 ] }
+
 
 ```
 
