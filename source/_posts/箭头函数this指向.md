@@ -6,13 +6,11 @@ tags:
   - javascript
 ---
 
-@(刘明仔笔记本)[javascript|es6|箭头函数]
-
-**箭头函数this指向**是面试高频词，虽然只是一个小的知识点，很容易混淆，所以有必要去学习和复盘。遂写此文
+> **箭头函数this指向**是面试高频词，虽然只是一个小的知识点，很容易混淆，所以有必要去学习和复盘。遂写此文
 
 ### 普通函数this指向
 
-#### 函数this
+**函数this**
 ``` javascript
 
   /**
@@ -32,7 +30,7 @@ tags:
   }
 
 ```
-#### 对象中的this
+**对象中的this**
 ``` javascript
   const obj = {
     x: 1,
@@ -41,13 +39,13 @@ tags:
     }
   }
 ```
-#### for和forEach循环中的this
+**for和forEach循环中的this**
 ``` javascript
   ['a','b'].forEach(function(){
     console.log(this);  // this指向window
   })
 ```
-#### setTimeout和setInterval中的this-
+**setTimeout和setInterval中的this**
 ``` javascript
   const obj = {
     test: function() {
@@ -62,7 +60,7 @@ tags:
 ```
 > 注意：第一个this指调用test的对象obj， 第二个this指向window，因为setTimeout里的匿名函数没有调用对象，默认指向window
 
-#### 原型链中的this * [原型继承可关注我的JS原型基础篇博文](https://liumingzai.github.io/2020/11/25/JS%E5%8E%9F%E5%9E%8B%E5%9F%BA%E7%A1%80%E7%AF%87/)
+**#### **原型链中的this** [原型继承可关注我的JS原型基础篇博文](https://liumingzai.github.io/2020/11/25/JS%E5%8E%9F%E5%9E%8B%E5%9F%BA%E7%A1%80%E7%AF%87/)
 ``` javascript
   var cup = {
     name: "",
@@ -76,7 +74,7 @@ tags:
  coffeeCup.drink();  // this指向调用对象coffeeCup而不是cup
 
 ```
-#### 构造函数中的this-构造函数基础可以看《JavaScript高级程序设计》6.2.2
+**构造函数中的this**构造函数基础可以看《JavaScript高级程序设计》6.2.2
 ``` javascript
   /**
    * new操作符调用构造函数发生了什么？
@@ -110,7 +108,7 @@ tags:
 ```
 > 注意3和4，是先修改this指向，在执行构造函数中的代码
 
-#### 内联事件绑定this指向
+**内联事件绑定this指向**
 ``` bash
  <!--this指向监听的dom-->
  <div onclick="alert(this);">click me</div>
@@ -125,9 +123,7 @@ tags:
 + 即使通过call、apply、bind等方法也不能改变箭头函数的this指向
 
 
-
 ``` javascript
-
   // 先来做个对比
   const obc = {
 		x:1,
@@ -164,7 +160,6 @@ tags:
 
 ```
 
-
 ``` javascript
 
   const obj = {
@@ -180,7 +175,6 @@ tags:
   }
 
 ```
-
 
 ### 如何改变this指向
 + 箭头函数不能修改this指向
@@ -210,7 +204,7 @@ tags:
   var f = new Foo();
 
 ```
-### 总结
+**总结**
 写过jquery的同学都应该写过_this = this或者_that = this避免this指向变化
 在严格模式下this不是指向window而是undefined
 我们做个练习巩固一下
