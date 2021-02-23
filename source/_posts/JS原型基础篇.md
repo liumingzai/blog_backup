@@ -14,7 +14,7 @@ tags:
 
 ### 如果你跟我一样，看半天没怎么绕明白，不要慌，一步一个脚印，用代码去校验一下就会豁然开朗。当然要配合着项目实战多练习，印象才会深刻
 
-``` bash
+``` javascript
 
     /**
     * 普通对象只有__proto__属性，且指向该对象构造函数的原型对象
@@ -40,36 +40,40 @@ tags:
     /**
     * 构造函数new出来的实例对象
     */
-    let f1 = new Con;
-    let f2 = new Con;
+    let c1 = new Con();
+    let c2 = new Con();
 
-    console.log('实例对象的__proto__属性指向该实例对象的构造函数原型对象 ', f1.__proto__ === Con.prototype)  // 实例对象的__proto__属性指向该实例对象的构造函数原型对象  true
-    console.log('实例对象的构造函数：'+f1.constructor, f1.constructor === f2.constructor)  // 实例对象的构造函数：function Con() {} true
-    console.log('实例对象没有构造函数',f1.hasOwnProperty('constructor')) // 实例对象没有构造函数 false
-    console.log('实例对象的构造函数是从原型上继承来的'+ f1.__proto__.constructor, f1.__proto__.constructor === f2.__proto__.constructor) //实例对象的构造函数是从原型上继承来的function Con() {} true
-    console.log(f1.__proto__.hasOwnProperty('constructor')) //true
-    console.log('实例对象比较', f1===f2)  // false
+    console.log('实例对象的__proto__属性指向该实例对象的构造函数原型对象 ', c1.__proto__ === Con.prototype)  // true
+    console.log('实例对象的构造函数是从原型上继承来的', c1.__proto__.constructor === c2.__proto__.constructor) //true
+    console.log('实例对象的构造函数：', c1.constructor === c2.constructor)  // true
+    console.log('实例对象没有构造函数',c1.hasOwnProperty('constructor')) // false
+    console.log('实例原型链上有构造方法', c1.__proto__.hasOwnProperty('constructor')) //true
+    console.log('实例对象比较', c1===c2)  // false
 
 
     /**
-    * 通过原型实现继承，并可以查看该属性是否是继承来的
+    * 给Con原型对象上增加方法，可以在实例中共享
     */
-    Con.prototype.commonValue =  "common"
-    console.log('实例对象继承原型对象，对其commonValue比较', f1.commonValue===f2.commonValue)  // 实例对象继承原型对象，对其commonValue比较 true
-    console.log('实例对象是否有commonValue属性', f1.hasOwnProperty('commonValue')) // 实例对象是否有commonValue属性 false
+    Con.prototype.commonValue = function(){ console.log("hello");}
+    console.log('实例对象继承原型对象，对其commonValue比较', c1.commonValue===c2.commonValue)  // true
+    console.log('实例对象是否有commonValue属性', c1.hasOwnProperty('commonValue')) // false
 
+    Con.prototype.name="";
+    c1.name = "c1";  
+    c2.name = "c2";
+    console.log(c1.__proto__.name);  // ""
 
 
     /**
     * 任何对象都可以看作通过Object构造函数new出来的
     */
-    let o1 = new Object;
-    let o2 = new Object;
+    let o1 = new Object();
+    let o2 = new Object();
 
     console.log('通过Object()函数new出来的实例', o1.__proto__ === Object.prototype)
-    console.log('实例对象的构造函数：'+ o1.constructor, o1.constructor === o2.constructor) // 实例对象的构造函数：function Object() { [native code] } true
-    console.log('实例对象没有构造函数',o1.hasOwnProperty('constructor')) // 实例对象没有构造函数 false
-    console.log('实例对象的构造函数是从原型上继承来的'+ o1.__proto__.constructor, o1.__proto__.constructor === o1.__proto__.constructor) //实例对象的构造函数是从原型上继承来的function Object() { [native code] } true
+    console.log('实例对象的构造函数是从原型上继承来的', o1.__proto__.constructor === o1.__proto__.constructor) //true
+    console.log('实例对象的构造函数：', o1.constructor === o2.constructor) //true
+    console.log('实例对象没有构造函数',o1.hasOwnProperty('constructor')) // false
     console.log(o1.__proto__.hasOwnProperty('constructor')) //true
     console.log('实例对象比较', o1===o2)  // 实例对象比较 false
 
@@ -104,7 +108,7 @@ tags:
 
 ### 1. 怎么实现原型链继承呢？(举个杯子的例子)
 
-``` bash
+``` javascript
   function Cup(name){
     this.name = name;
     this.use = function() {
@@ -116,7 +120,7 @@ tags:
   function MilkCup() {}
 
   // 原型链继承关键：子类的原型为父类的一个实例对象
-  TeaCup.prototype = new Cup()     
+  TeaCup.prototype = new Cup()
   MilkCup.prototype = new Cup()     
 
   // 必须在指定子类型为父类型实例对象后定义
@@ -136,7 +140,7 @@ tags:
 
 ### 2. 使用构造函数继承（举个动物例子）
 
-``` bash
+``` javascript
 
   function Animal(name, food){
     this.name = name;
@@ -178,7 +182,7 @@ tags:
 
 ### 3. 返回父类实例实现继承 （举个玩球类运动）
 
-``` bash
+``` javascript
   
   function Ball(name){
     this.name = name;
@@ -206,7 +210,7 @@ tags:
 
 ### 4. 组合1,2两类继承 (举个打卡机例子也是推荐的用法)
 
-``` bash
+``` javascript
   function Check(num){
     this.num = num;
     this.show = function(){
@@ -232,7 +236,7 @@ tags:
 
 ### 5. 寄生组合继承 (举例员工打卡对4优化也是推荐的用法)
 
-``` bash
+``` javascript
   function Check(num){
     this.num = num;
     this.show = function(){
