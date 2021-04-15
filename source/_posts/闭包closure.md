@@ -25,17 +25,27 @@ tags:
 
 严格来讲，IIFE(Imdiately Invoked Function Expression)不是闭包，但是也拥有闭包的特性。
 IIFE避免---function出现行首，让引擎误认为是函数声明； 常见的IIFE 
- + (function (){}());  
- + (function (){})();
- !function(){}();
- +function(){}();
-
- var foo = function(){}();
+ 1. (function (){}());  
+ 2. (function (){})();
+ 3. !function(){}();
+ 4. +function(){}();
+ 6. var foo = function(){}();
  
- * 注意function foo(){}(); 报错"SyntaxError: Unexpected token" 报错原因函数声明和分组操作符组合后，分组操作符不能为空
-   function foo(){}(1) 不报错返回1
+ *注意function foo(){}(); 报错"SyntaxError: Unexpected token" 报错原因函数声明和分组操作符组合后，分组操作符不能为空；function foo(){}(1) 不报错返回1*
 
- * 立即执行函数和普通函数
+   
+#### 立即执行函数避免了全局污染
+ ``` javascript
+   var inc = (function(){
+     var cnt = 0;
+      return function(){
+        ++cnt;
+      }
+    })();
+
+ ```
+
+#### 立即执行函数和普通函数
 
   ``` javascript
     // with
@@ -67,7 +77,7 @@ IIFE避免---function出现行首，让引擎误认为是函数声明； 常见�
     }
   ```
 
- * 具名函数表达式
+#### 具名函数表达式
 
   ``` javascript
 
@@ -93,17 +103,6 @@ IIFE避免---function出现行首，让引擎误认为是函数声明； 常见�
 
  ```
 
- * 立即执行函数避免了全局污染
-  ``` javascript
-    var inc = (function(){
-      var cnt = 0;
-      return function(){
-        ++cnt;
-      }
-    })();
-
- ```
-
 #### 闭包对执行环境的影响
 
 ``` javascript
@@ -124,7 +123,7 @@ IIFE避免---function出现行首，让引擎误认为是函数声明； 常见�
 不难发现，上面代码由于闭包bar()函数的引用了foo()的变量a，导致foo()虽然执行环境销毁了，但其变量一直在内存，等待bar()的引用，从活动状态变成非活动状态。bar()函数执行时通过 bar()->foo()->全局作用域查找a。直到页面关闭，变量a才会和全局对象一起销毁。释放内存空间。所以要谨慎使用闭包，尽量使用完闭包，及时解除引用如：baz = null;
 
 
-####　闭包与循环
+#### 闭包与循环
 
 ``` javascript
 
@@ -141,8 +140,8 @@ IIFE避免---function出现行首，让引擎误认为是函数声明； 常见�
   console.log(bar[0]());  //5 
 
 ```
-使用闭包优化
 
+使用闭包保存变量i的引用
 
 ``` javascript
   function foo() {
