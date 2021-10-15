@@ -21,3 +21,6 @@
 ``` bash
   hexo server   
 
+### 提交失败解决
+git config --global --unset https.proxy
+git config --global --unset http.proxy
